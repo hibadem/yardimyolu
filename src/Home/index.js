@@ -9,6 +9,7 @@ import photo3 from "../assets/images/Photo 3.jpg";
 import containerGray from "../assets/images/container-gray.svg";
 import containerGreen from "../assets/images/container-green.svg";
 import chart from "../assets/images/chart.png"
+import "../assets/fonts/Montserrat-Regular.ttf";
 const Home = () => {
   return (
     <div className="home">
