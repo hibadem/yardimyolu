@@ -49,7 +49,8 @@ const Home = () => {
     fetch('http://localhost:1000/donation')
       .then(response => response.json())
       .then(data => {
-        setDonationAmount(data.amount);
+        console.log(data);
+        setDonationAmount(data);
       })
       .catch(error => {
         console.error('Error fetch donation', error);
