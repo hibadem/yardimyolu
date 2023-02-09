@@ -232,6 +232,9 @@ a {
   align-items: center;
   gap: 40px;
   margin-bottom: 60px;
+  &__item {
+    width: 60px;
+  }
 }
 
 .footer {

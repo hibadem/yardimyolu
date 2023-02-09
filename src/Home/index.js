@@ -51,8 +51,9 @@ const Home = () => {
 
   useEffect(() => {
     for (let i = 1; i <= 50; i++) {
-      const currIndex = Number(450000 / 45000) + 22
+      const currIndex = Number(donationAmount / 45000) + 21;
       setActiveIndex(currIndex);
+      console.log(currIndex,"donat index")
     }
     fetch('http://localhost:1005/donation')
       .then(response => response.json())
@@ -230,102 +231,11 @@ const Home = () => {
       </div>
 
       <div className="containers">
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
+        {items.map((item, index) => (
+        <div className="containers__item">
+          <img key={item} src={index <= activeIndex ? containerGreen : containerGray} />
         </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGreen} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGray} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGray} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGray} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGray} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGray} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGray} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGray} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGray} alt="" />
-        </div>
-        <div>
-          1. Konteyner
-          <img src={containerGray} alt="" />
-        </div>
+        ))}
       </div>
 
       <div className="footer">
