@@ -1,6 +1,5 @@
 import React from "react";
 import "./index.scss";
-import Form from "../Form";
 import banner from "../assets/images/banner.jpg";
 import ahbapLogo from "../assets/images/ahbap-logo.png";
 import tatkoLogo from "../assets/images/tatko.png";
@@ -32,7 +31,7 @@ const Home = () => {
       <section className="cards mt-4">
         <div className="cards__item">
           <div className="cards__header -active">
-            <h3 className="cards__title">1.hedefimize ulaştık!</h3>
+            <h3 className="cards__title">1.Hedefimize ulaştık!</h3>
           </div>
           <div className="cards__footer">
             <b className="cards__count">22 Adet Konteyner</b>
@@ -41,24 +40,24 @@ const Home = () => {
         </div>
         <div className="cards__item">
           <div className="cards__header">
-            <h3 className="cards__title">1.hedefimize ulaştık!</h3>
+            <h3 className="cards__title">2.Hedefimiz Devam Ediyor</h3>
           </div>
           <div className="cards__footer">
-            <b className="cards__count">22 Adet Konteyner</b>
-            <p>1 Milyon TL</p>
+            <b className="cards__count">28 Adet Konteyner</b>
+            <p>1 Milyon 260 Bin TL</p>
           </div>
         </div>
       </section>
 
       <section className="donation mt-4">
-        <img src={ahbapLogo} alt="" />
+        <img className="donation__image" src={ahbapLogo} alt="" />
         <div className="donation__inner">
           <p>Depremzedelerimize Yardım için</p>
           <button type="button" className="btn btn-lg btn-danger">
             BAĞIŞ YAP
           </button>
         </div>
-        <img src={tatkoLogo} alt="" />
+        <img className="donation__image" src={tatkoLogo} alt="" />
       </section>
 
       <section className="multibanner mt-4">
@@ -69,7 +68,7 @@ const Home = () => {
 
       <section className="transfer">
         <p>
-          Ahbap derneğinin resmi hesaplarına, dünyanın her yerinden döviz
+          Ahbap derneğinin resmi banka hesaplarına, dünyanın her yerinden döviz
           havalesi yapılabilmektedir.
         </p>
         <p>
@@ -90,24 +89,24 @@ const Home = () => {
         </section>
 
         <section className="account">
-          <h5 className="account__item">TL HESABI</h5>
-          <div className="account__item">1021-1380059</div>
+          <h5 className="account__item">USD HESABI</h5>
+          <div className="account__item">1021-2150262</div>
           <div className="account__item">IBAN</div>
-          <div className="account__item">TR12000640000011380059</div>
+          <div className="account__item">TR320006400000210212150262</div>
         </section>
 
         <section className="account">
-          <h5 className="account__item">TL HESABI</h5>
+          <h5 className="account__item">EUR HESABI</h5>
           <div className="account__item">1021-1380059</div>
           <div className="account__item">IBAN</div>
-          <div className="account__item">TR12000640000011380059</div>
+          <div className="account__item">TR150006400000210212150277</div>
         </section>
 
         <section className="account">
-          <h5 className="account__item">TL HESABI</h5>
+          <h5 className="account__item">GBP STERLIN HESABI</h5>
           <div className="account__item">1021-1380059</div>
           <div className="account__item">IBAN</div>
-          <div className="account__item">TR12000640000011380059</div>
+          <div className="account__item">TR370006400000210212260849</div>
         </section>
       </div>
 
@@ -115,7 +114,7 @@ const Home = () => {
         Barınma desteği sağlayacak bir konteynerin bedeli: 45.000 TL
       </div>
 
-      <div class="donation-section">
+      <div class="donation-section mt-4">
         <div class="chart">
           chart
         </div>
@@ -243,11 +242,9 @@ const Home = () => {
       </div>
 
       <div class="footer">
-        <img src={tatkoLogo} alt="" />
+        <img className="w-100" src={tatkoLogo} alt="" />
         <span>©2023</span>
       </div>
-
-      <Form />
     </div>
 
 
