@@ -8,6 +8,7 @@ import photo2 from "../assets/images/Photo 2.jpg";
 import photo3 from "../assets/images/Photo 3.jpg";
 import containerGray from "../assets/images/container-gray.svg";
 import containerGreen from "../assets/images/container-green.svg";
+import chart from "../assets/images/chart.png"
 const Home = () => {
   return (
     <div className="home">
@@ -114,31 +115,56 @@ const Home = () => {
         Barınma desteği sağlayacak bir konteynerin bedeli: 45.000 TL
       </div>
 
-      <div class="donation-section mt-4">
-        <div class="chart">
-          chart
+      <div className="donation-section container mt-4">
+        <div className="target">
+          <div className="target-item">
+            <div className="target__circle"></div>
+            <div className="target__content">
+              <div className="target__title">Hedefimiz:</div>
+              <div className="target__amount">1.260.000 TL</div>
+            </div>
+          </div>
+
+          <div className="target-item -active">
+            <div className="target__circle"></div>
+            <div className="target__content">
+              <div className="target__title">Ulaşılan Bağış Miktarı:</div>
+              <div className="target__amount">270.000 TL</div>
+            </div>
+          </div>
         </div>
-        <div class="form">
-        <form>
-          <div class="form-group pb-3">
-            <label for="nameSurname">Adınız Soyadınız</label>
-            <input type="text" class="form-control" id="nameSurname" />
+        <div className="chart">
+          <img className="w-100"src={chart} alt="" />
+        </div>
+        
+        <div className="form-container">
+          <div className="text-center">
+            <small className="text-muted">Lütfen dekontun açıklama bölümüne</small>
+            <b>"YARDIM YOLU-T"</b>
+            <small className="text-muted">ifadesini ekleyiniz.</small> 
           </div>
-          <div class="form-group pb-3">
-            <label for="companyName">Kurum Adı</label>
-            <input type="text" class="form-control" id="companyName" />
+          <div className="form">
+            <form>
+              <div class="form-group pb-3">
+                <label for="nameSurname">Adınız Soyadınız</label>
+                <input type="text" class="form-control" id="nameSurname" />
+              </div>
+              <div class="form-group pb-3">
+                <label for="companyName">Kurum Adı</label>
+                <input type="text" class="form-control" id="companyName" />
+              </div>
+              <div class="form-group pb-3">
+                <label for="donationAmount">Bağış Miktarı</label>
+                <input type="number" class="form-control" id="donationAmount" />
+              </div>
+              <div class="form-group pb-3">
+              <label for="receipt">Dekont</label>
+              <input type="file" class="form-control" id="receipt" />
+              </div>
+              <button type="submit" class="btn">Gönder</button>
+              <div>Aydınlatma metni için tıklayınız</div>
+            </form>
           </div>
-          <div class="form-group pb-3">
-            <label for="donationAmount">Bağış Miktarı</label>
-            <input type="number" class="form-control" id="donationAmount" />
-          </div>
-          <div class="form-group pb-3">
-          <label for="receipt">Dekont</label>
-          <input type="file" class="form-control" id="receipt" />
-          </div>
-          <button type="submit" class="btn">Gönder</button>
-          <div>Aydınlatma metni için tıklayınız</div>
-        </form>
         </div>
       </div>
 
