@@ -63,6 +63,13 @@ const Home = () => {
         <img className="multibanner__image" src={photo2} alt="" />
         <img className="multibanner__image" src={photo3} alt="" />
       </section>
+
+      <section className="transfer">
+        <p>Ahbap derneğinin resmi hesaplarına, dünyanın her yerinden döviz havalesi yapılabilmektedir.</p>
+        <p>Yurdışından yapılacak ödemeler için xxxx swift kodunu kullanabilirsiniz.</p>
+        <p>Yardımlarınızı iletebileceğiniz Ahbap Derneği'ne ait hesap numaraları:</p>
+      </section>
+
     </div>
   );
 };
