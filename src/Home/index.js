@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import "./index.scss";
 import banner from "../assets/images/banner.jpg";
 import ahbapLogo from "../assets/images/ahbap-logo.png";
@@ -11,6 +11,51 @@ import containerGreen from "../assets/images/container-green.svg";
 import chart from "../assets/images/chart.png"
 import "../assets/fonts/Montserrat-Regular.ttf";
 const Home = () => {
+  const [formData, setFormData] = useState({
+    Fullname: '',
+    Company: '',
+    Amount: '',
+    Image: ''
+  });
+
+  const handleChange = event => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    });
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    fetch('http://localhost:1005/donation', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  };
+
+  const [donationAmount, setDonationAmount] = useState(0);
+
+  useEffect(() => {
+    fetch('http://localhost:1000/donation')
+      .then(response => response.json())
+      .then(data => {
+        setDonationAmount(data.amount);
+      })
+      .catch(error => {
+        console.error('Error fetch donation', error);
+      });
+  }, []);
+
   return (
     <div className="home">
       <header className="header">
@@ -130,7 +175,7 @@ const Home = () => {
             <div className="target__circle"></div>
             <div className="target__content">
               <div className="target__title">Ulaşılan Bağış Miktarı:</div>
-              <div className="target__amount">270.000 TL</div>
+              <div className="target__amount">{donationAmount}</div>
             </div>
           </div>
         </div>
@@ -145,31 +190,31 @@ const Home = () => {
             <small className="text-muted">ifadesini ekleyiniz.</small> 
           </div>
           <div className="form">
-            <form>
-              <div class="form-group pb-3">
-                <label for="nameSurname">Adınız Soyadınız</label>
-                <input type="text" class="form-control" id="nameSurname" />
+            <form onSubmit={handleSubmit}>
+              <div className="form-group pb-3">
+                <label>Adınız Soyadınız</label>
+                <input name="Fullname" onChange={handleChange} defaultValue={formData.Image} type="text" className="form-control" />
               </div>
-              <div class="form-group pb-3">
-                <label for="companyName">Kurum Adı</label>
-                <input type="text" class="form-control" id="companyName" />
+              <div className="form-group pb-3">
+                <label>Kurum Adı</label>
+                <input name="Company" onChange={handleChange} defaultValue={formData.Image} type="text" className="form-control" />
               </div>
-              <div class="form-group pb-3">
-                <label for="donationAmount">Bağış Miktarı</label>
-                <input type="number" class="form-control" id="donationAmount" />
+              <div className="form-group pb-3">
+                <label>Bağış Miktarı</label>
+                <input name="Amount" onChange={handleChange} defaultValue={formData.Image} type="number" className="form-control"  />
               </div>
-              <div class="form-group pb-3">
-              <label for="receipt">Dekont</label>
-              <input type="file" class="form-control" id="receipt" />
+              <div className="form-group pb-3">
+                <label>Dekont</label>
+                <input name="Image" onChange={handleChange} defaultValue={formData.Image} type="file" className="form-control" />
               </div>
-              <button type="submit" class="btn">Gönder</button>
+              <button type="submit" className="btn">Gönder</button>
               <div>Aydınlatma metni için tıklayınız</div>
             </form>
           </div>
         </div>
       </div>
 
-      <div class="containers">
+      <div className="containers">
         <div>
           1. Konteyner
           <img src={containerGreen} alt="" />
@@ -268,7 +313,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div class="footer">
+      <div className="footer">
         <img className="w-100" src={tatkoLogo} alt="" />
         <span>©2023</span>
       </div>
