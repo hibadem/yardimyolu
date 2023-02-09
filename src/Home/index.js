@@ -46,7 +46,7 @@ const Home = () => {
   const [donationAmount, setDonationAmount] = useState(0);
 
   useEffect(() => {
-    fetch('http://localhost:1000/donation')
+    fetch('http://localhost:1005/donation')
       .then(response => response.json())
       .then(data => {
         console.log(data);
