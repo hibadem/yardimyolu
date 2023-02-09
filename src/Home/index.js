@@ -3,7 +3,9 @@ import "./index.scss";
 import banner from "../assets/images/banner.jpg";
 import ahbapLogo from "../assets/images/ahbap-logo.png";
 import tatkoLogo from "../assets/images/tatko.png";
-
+import photo1 from "../assets/images/Photo 1.jpg";
+import photo2 from "../assets/images/Photo 2.jpg";
+import photo3 from "../assets/images/Photo 3.jpg";
 const Home = () => {
   return (
     <div className="home">
@@ -26,10 +28,8 @@ const Home = () => {
       </section>
       <section className="cards mt-4">
         <div className="cards__item">
-        <div className="cards__header -active">
-            <h3 className="cards__title">
-              1.hedefimize ulaştık!
-            </h3>
+          <div className="cards__header -active">
+            <h3 className="cards__title">1.hedefimize ulaştık!</h3>
           </div>
           <div className="cards__footer">
             <b className="cards__count">22 Adet Konteyner</b>
@@ -38,9 +38,7 @@ const Home = () => {
         </div>
         <div className="cards__item">
           <div className="cards__header">
-            <h3 className="cards__title">
-              1.hedefimize ulaştık!
-            </h3>
+            <h3 className="cards__title">1.hedefimize ulaştık!</h3>
           </div>
           <div className="cards__footer">
             <b className="cards__count">22 Adet Konteyner</b>
@@ -51,11 +49,19 @@ const Home = () => {
 
       <section className="donation mt-4">
         <img src={ahbapLogo} alt="" />
-        <div className="">
+        <div className="donation__inner">
           <p>Depremzedelerimize Yardım için</p>
-          <button>Bağış Yap</button>
+          <button type="button" className="btn btn-lg btn-danger">
+            BAĞIŞ YAP
+          </button>
         </div>
         <img src={tatkoLogo} alt="" />
+      </section>
+
+      <section className="multibanner">
+        <img className="multibanner__image" src={photo1} alt="" />
+        <img className="multibanner__image" src={photo2} alt="" />
+        <img className="multibanner__image" src={photo3} alt="" />
       </section>
     </div>
   );
