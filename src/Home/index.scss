@@ -1,0 +1,71 @@
+@import '~bootstrap/scss/bootstrap';
+
+* {
+    margin: 0;
+    text-decoration: none !important;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 50px;
+    background-color: #58595B;
+    color: white;
+    text-align: center;
+
+    @include media-breakpoint-down(sm) {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    a {
+        color: white;
+        &:hover {
+            color: black;
+        }
+    }
+    &__site {
+        border: 1px solid white;
+        border-radius: 20px;
+        padding: 10px;
+        text-decoration: none;
+    }
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    
+    &__header {
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        background-color: #b2b2b2;
+        &.-active {
+            background-color: #1bc402;
+        }
+    }
+
+    &__title {
+        padding: 5px;
+        color: white;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 20px;
+        min-width: 300px;
+    }
+}
+
+.donation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
