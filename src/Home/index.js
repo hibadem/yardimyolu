@@ -58,18 +58,59 @@ const Home = () => {
         <img src={tatkoLogo} alt="" />
       </section>
 
-      <section className="multibanner">
+      <section className="multibanner mt-4">
         <img className="multibanner__image" src={photo1} alt="" />
         <img className="multibanner__image" src={photo2} alt="" />
         <img className="multibanner__image" src={photo3} alt="" />
       </section>
 
       <section className="transfer">
-        <p>Ahbap derneğinin resmi hesaplarına, dünyanın her yerinden döviz havalesi yapılabilmektedir.</p>
-        <p>Yurdışından yapılacak ödemeler için xxxx swift kodunu kullanabilirsiniz.</p>
-        <p>Yardımlarınızı iletebileceğiniz Ahbap Derneği'ne ait hesap numaraları:</p>
+        <p>
+          Ahbap derneğinin resmi hesaplarına, dünyanın her yerinden döviz
+          havalesi yapılabilmektedir.
+        </p>
+        <p>
+          Yurdışından yapılacak ödemeler için xxxx swift kodunu
+          kullanabilirsiniz.
+        </p>
+        <p>
+          Yardımlarınızı iletebileceğiniz Ahbap Derneği'ne ait hesap numaraları:
+        </p>
       </section>
 
+      <div className="accounts">
+        <section className="account">
+          <h5 className="account__item">TL HESABI</h5>
+          <div className="account__item">1021-1380059</div>
+          <div className="account__item">IBAN</div>
+          <div className="account__item">TR12000640000011380059</div>
+        </section>
+
+        <section className="account">
+          <h5 className="account__item">TL HESABI</h5>
+          <div className="account__item">1021-1380059</div>
+          <div className="account__item">IBAN</div>
+          <div className="account__item">TR12000640000011380059</div>
+        </section>
+
+        <section className="account">
+          <h5 className="account__item">TL HESABI</h5>
+          <div className="account__item">1021-1380059</div>
+          <div className="account__item">IBAN</div>
+          <div className="account__item">TR12000640000011380059</div>
+        </section>
+
+        <section className="account">
+          <h5 className="account__item">TL HESABI</h5>
+          <div className="account__item">1021-1380059</div>
+          <div className="account__item">IBAN</div>
+          <div className="account__item">TR12000640000011380059</div>
+        </section>
+      </div>
+
+      <div className="info">
+        
+      </div>
     </div>
   );
 };
