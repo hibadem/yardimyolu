@@ -8,20 +8,24 @@ import photo2 from "../assets/images/Photo 2.jpg";
 import photo3 from "../assets/images/Photo 3.jpg";
 import containerGray from "../assets/images/container-gray.svg";
 import containerGreen from "../assets/images/container-green.svg";
-import chart from "../assets/images/chart.png"
+import  PieChart  from "../PieChart";
 import "../assets/fonts/Montserrat-Regular.ttf";
 const Home = () => {
   const [formData, setFormData] = useState({
     Fullname: '',
     Company: '',
     Amount: '',
-    Image: ''
+    Image: '',
+    NameListApprove: false
   });
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const items = Array.from({ length: 50 }, (_, i) => i);
 
   const handleChange = event => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.name == 'Image' ? event.target.files[0] : event.target.value
     });
   };
 
@@ -46,6 +50,10 @@ const Home = () => {
   const [donationAmount, setDonationAmount] = useState(0);
 
   useEffect(() => {
+    for (let i = 1; i <= 50; i++) {
+      const currIndex = Number(450000 / 45000) + 22
+      setActiveIndex(currIndex);
+    }
     fetch('http://localhost:1005/donation')
       .then(response => response.json())
       .then(data => {
@@ -101,9 +109,9 @@ const Home = () => {
         <img className="donation__image" src={ahbapLogo} alt="" />
         <div className="donation__inner">
           <p>Depremzedelerimize Yardım için</p>
-          <button type="button" className="btn btn-lg btn-danger">
+          <a href="https://ahbap.org/bagisci-ol" target="_blank" className="btn btn-lg btn-danger">
             BAĞIŞ YAP
-          </button>
+          </a>
         </div>
         <img className="donation__image" src={tatkoLogo} alt="" />
       </section>
@@ -181,7 +189,7 @@ const Home = () => {
           </div>
         </div>
         <div className="chart">
-          <img className="w-100"src={chart} alt="" />
+          <PieChart donationAmount={donationAmount} />
         </div>
         
         <div className="form-container">
@@ -194,22 +202,28 @@ const Home = () => {
             <form onSubmit={handleSubmit}>
               <div className="form-group pb-3">
                 <label>Adınız Soyadınız</label>
-                <input name="Fullname" onChange={handleChange} defaultValue={formData.Image} type="text" className="form-control" />
+                <input name="Fullname" onChange={handleChange} defaultValue={formData.Image} type="text" className="form-control" required />
               </div>
               <div className="form-group pb-3">
                 <label>Kurum Adı</label>
-                <input name="Company" onChange={handleChange} defaultValue={formData.Image} type="text" className="form-control" />
+                <input name="Company" onChange={handleChange} defaultValue={formData.Image} type="text" className="form-control" required/>
               </div>
               <div className="form-group pb-3">
                 <label>Bağış Miktarı</label>
-                <input name="Amount" onChange={handleChange} defaultValue={formData.Image} type="number" className="form-control"  />
+                <input name="Amount" onChange={handleChange} defaultValue={formData.Image} type="number" className="form-control" required  />
               </div>
               <div className="form-group pb-3">
                 <label>Dekont</label>
-                <input name="Image" onChange={handleChange} defaultValue={formData.Image} type="file" className="form-control" />
+                <input name="Image" onChange={handleChange} defaultValue={formData.Image} type="file" className="form-control" required />
               </div>
+              <div className="form-check">
+                <input className="form-check-input" type="checkbox" name="NameListApprove" onChange={handleChange} defaultValue={formData.NameListApprove} required />
+                <label className="form-check-label">
+                Bağışçı listesinde ismimin yayınlanmasına onay veriyorum
+                </label>
+              </div>  
               <button type="submit" className="btn">Gönder</button>
-              <div>Aydınlatma metni için tıklayınız</div>
+              <a href="/Aydinlatma_Beyani_Bagis_icin.docx">Aydınlatma metni için tıklayınız</a>
             </form>
           </div>
         </div>
