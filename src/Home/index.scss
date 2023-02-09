@@ -71,8 +71,18 @@ a {
     display: flex;
     align-items: center;
     padding: 0 10px;
-    justify-content: space-between;
+    gap: 30px;
+    justify-content: center;
 
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+    }
+
+    &__img {
+        max-width: 300px;
+        @include media-breakpoint-down(md) {
+        }
+    }
     &__inner {
         display: flex;
         flex-direction: column;
@@ -84,7 +94,13 @@ a {
 .multibanner {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    gap: 30px;
+    justify-content: center;
+
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+    }
+
     &__image {
         max-width: 250px;
     }
@@ -99,6 +115,10 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+        gap: 30px;
+    }
     .account {
         display: flex;
         flex-direction: column;
@@ -108,4 +128,11 @@ a {
             font-weight: bold;
         }
     }
+}
+
+.info {
+    background-color: black;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
 }
