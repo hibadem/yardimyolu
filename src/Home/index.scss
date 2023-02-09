@@ -1,5 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
+$green: #1bc402;
+
 * {
     margin: 0;
 }
@@ -47,7 +49,7 @@ a {
         border-radius: 20px 20px 0 0;
         background-color: #b2b2b2;
         &.-active {
-            background-color: #1bc402;
+            background-color: $green;
         }
     }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.scss";
+import Form from "../Form";
 import banner from "../assets/images/banner.jpg";
 import ahbapLogo from "../assets/images/ahbap-logo.png";
 import tatkoLogo from "../assets/images/tatko.png";
@@ -114,6 +115,8 @@ const Home = () => {
       <div className="info mt-4">
         <h3>Barınma desteği sağlayacak bir konteynerin bedeli 45.000 TL</h3>
       </div>
+
+      <Form />
     </div>
   );
 };
