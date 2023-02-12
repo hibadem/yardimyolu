@@ -31,13 +31,22 @@ const Home = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    fetch('http://localhost:1005/donation', {
+    const frm = new FormData();
+    frm.append("Fullname", formData.Fullname);
+    frm.append("Amount", formData.Amount);
+    frm.append("Company", formData.Company);
+    frm.append("NameListApprove", formData.NameListApprove);
+    frm.append("Image", formData.Image);
+
+    const requestOptions = {
       method: 'POST',
+      body: frm,
       headers: {
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
+      }
+    }
+
+    fetch('https://jsonplaceholder.typicode.com/posts', requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log('Success:', data);
@@ -53,7 +62,6 @@ const Home = () => {
     for (let i = 1; i <= 50; i++) {
       const currIndex = Number(donationAmount / 45000) + 21;
       setActiveIndex(currIndex);
-      console.log(currIndex,"donat index")
     }
     fetch('http://localhost:1005/donation')
       .then(response => response.json())
@@ -203,19 +211,19 @@ const Home = () => {
             <form onSubmit={handleSubmit}>
               <div className="form-group pb-3">
                 <label>Adınız Soyadınız</label>
-                <input name="Fullname" onChange={handleChange} defaultValue={formData.Image} type="text" className="form-control" required />
+                <input name="Fullname" onChange={handleChange} defaultValue={formData.Fullname} type="text" className="form-control" required />
               </div>
               <div className="form-group pb-3">
                 <label>Kurum Adı</label>
-                <input name="Company" onChange={handleChange} defaultValue={formData.Image} type="text" className="form-control" required/>
+                <input name="Company" onChange={handleChange} defaultValue={formData.Company} type="text" className="form-control" required/>
               </div>
               <div className="form-group pb-3">
                 <label>Bağış Miktarı</label>
-                <input name="Amount" onChange={handleChange} defaultValue={formData.Image} type="number" className="form-control" required  />
+                <input name="Amount" onChange={handleChange} defaultValue={formData.Amount} type="number" className="form-control" required  />
               </div>
               <div className="form-group pb-3">
                 <label>Dekont</label>
-                <input name="Image" onChange={handleChange} defaultValue={formData.Image} type="file" className="form-control" required />
+                <input type="file" accept="images/*" name="Image" onChange={handleChange} defaultValue={formData.Image}  className="form-control" required />
               </div>
               <div className="form-check">
                 <input className="form-check-input" type="checkbox" name="NameListApprove" onChange={handleChange} defaultValue={formData.NameListApprove} required />
